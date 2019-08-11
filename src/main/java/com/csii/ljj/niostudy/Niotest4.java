@@ -16,7 +16,7 @@ public class Niotest4 {
         FileChannel inputChannel = inputStream.getChannel();
         FileChannel outputChannel = outputStream.getChannel();
 
-        // buffer
+            // buffer
         ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
         int read = 0;
         while (true){
