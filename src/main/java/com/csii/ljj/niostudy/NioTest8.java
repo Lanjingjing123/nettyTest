@@ -7,29 +7,28 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 
-public class Niotest4 {
+public class NioTest8 {
     public static void main(String[] args) throws IOException {
-        FileInputStream inputStream = new FileInputStream("D:\\csii\\pe_demo\\nettyTest\\input.txt");
+
+        FileInputStream inputStream = new FileInputStream("input.txt");
         FileOutputStream outputStream = new FileOutputStream("output.txt");
 
         // Channel
+
         FileChannel inputChannel = inputStream.getChannel();
         FileChannel outputChannel = outputStream.getChannel();
 
-            // buffer
-        ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
+        // buffer
+        ByteBuffer byteBuffer = ByteBuffer.allocate(10);
         int read = 0;
-        while (true){
+        while (true) {
 
             // clear作用很大
             byteBuffer.clear();
-            if(read == -1){
-                byteBuffer.flip();
-                outputChannel.write(byteBuffer);
-            }
+
             read = inputChannel.read(byteBuffer);
-            System.out.println("read:"+read);
-            if (-2== read){
+            System.out.println("read:" + read);
+            if (-1 == read) {
                 break;
             }
             byteBuffer.flip();
@@ -39,6 +38,7 @@ public class Niotest4 {
         }
         inputChannel.close();
         outputChannel.close();
+
 
     }
 }
