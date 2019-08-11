@@ -11,8 +11,7 @@ public class App
         long a = 12;
         long b = 13;
 
-        TestReturn testReturn = new TestReturn();
-        testReturn.test();
+
     }
 
 
